@@ -1,6 +1,7 @@
 <template>
     <div>
-        <h1>öwrşekg</h1>
+        <h1>Anasayfa</h1>
+        <button class="btn btn-primary">Primary Button</button>
     </div>
 </template>
 
