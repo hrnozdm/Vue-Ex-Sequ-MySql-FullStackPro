@@ -18,6 +18,13 @@ app.get('/',(req,res)=>{
 });
 
 
+app.post('/register',(req,res)=>{
+  res.send({
+    message:`Yeni bir kullanıcı eklendi Email:${req.body.email} ve Şifresi:${req.body.password}`
+  });
+})
+
+
 
 
 const port=3000;
