@@ -8,6 +8,30 @@ const app=express();
 app.use(morgan('combine'));
 app.use(cors());
 app.use(bodyParser.json())
+require('dotenv').config();
+const dbUsername = process.env.DB_USERNAME;
+const dbPassword = process.env.DB_PASSWORD;
+const dbDatabase = process.env.DB_DATABASE;
+
+
+const { Sequelize } = require('sequelize');
+const sequelize = new Sequelize(dbDatabase, dbUsername, dbPassword, {
+  host: 'localhost',
+  dialect: 'mysql',
+});
+
+
+sequelize
+  .authenticate()
+  .then(() => {
+    console.log('Veritabanına başarıyla bağlandınız.');
+  })
+  .catch((err) => {
+    console.error('Veritabanına bağlantı hatası:', err);
+  });
+
+
+
 
 
 app.get('/',(req,res)=>{
