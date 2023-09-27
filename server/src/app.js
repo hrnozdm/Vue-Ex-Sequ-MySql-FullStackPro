@@ -24,12 +24,6 @@ app.get('/test',(req,res)=>{
   });
 });
 
-app.get('/test2',(req,res)=>{
-  res.send({
-    message:'test2',
-    
-  });
-});
 
 const port=3000;
 
