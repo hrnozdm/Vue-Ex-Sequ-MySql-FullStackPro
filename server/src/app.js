@@ -4,11 +4,15 @@ const cors=require('cors');
 const morgan=require('morgan');
 const routes=require('./routes');
 const app=express();
+
+
+
 app.use(morgan('combine'));
 app.use(cors());
 app.use(bodyParser.json())
 require('dotenv').config();
 routes(app)
+
 
 
 
