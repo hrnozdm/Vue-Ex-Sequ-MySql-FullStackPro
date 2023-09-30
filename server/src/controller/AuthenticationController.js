@@ -1,4 +1,13 @@
-const {User}=require('../models/index')
+const {User}=require('../models/index');
+const jwt=require('jsonwebtoken');
+const config=require('../config/config.json');
+
+function jwtSignuser(user) {
+  const ONE_WEEK=60*60*24*7;
+   return jwt.sign(user,config.jwtSecret,{
+    expiresIn:ONE_WEEK
+   });
+}
 module.exports = {
   async register(req, res) {
     try {
@@ -6,6 +15,7 @@ module.exports = {
         email: req.body.email,
         password:req.body.password
       });
+     
       res.json(user);
     } catch (error) {
       res.status(400).json({ error: error.message });
@@ -21,17 +31,20 @@ module.exports = {
 
   async login(req,res){
     try {
-      const response=await User.findOne({
+      const user=await User.findOne({
         where:{
           email:req.body.email,
           password:req.body.password
         }
       });
-       res.json(response)
-        
+      const userJson=user.toJSON();
+       res.send({
+        user:userJson,
+        token:jwtSignuser(userJson),
+       });
       
     } catch (error) {
-        res.json(error)
+      res.status(400).json({ error: error.message });
     }
   }
 
