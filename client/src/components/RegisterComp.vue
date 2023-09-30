@@ -32,9 +32,7 @@
     </div>
 
 
-   <div>
-    {{ error }}
-   </div>
+  
   
 
    
@@ -64,9 +62,11 @@ export default{
             })
              if (response) {
                 this.error='Kayıt Başarılı';
+                alert(this.error);
              }
             } catch (error) {
                 this.error=error.response.data.error;
+                alert(this.error);
             }
         },
       

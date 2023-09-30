@@ -4,6 +4,8 @@ const AuthenticationControllerMiddleware =require("./middleware/AuthenticationCo
 module.exports = (app) => {
   app.post("/register",AuthenticationControllerMiddleware.register ,AuthenticationController.register);
 
+  app.post("/login",AuthenticationController.login);
+
 
   app.get("/",AuthenticationController.home);
 };

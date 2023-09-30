@@ -13,11 +13,27 @@ module.exports = {
    
   },
 
-  home(req, res) {
+  async home(req, res) {
     res.send({
       message: "Anasayfa",
     });
   },
+
+  async login(req,res){
+    try {
+      const response=await User.findOne({
+        where:{
+          email:req.body.email,
+          password:req.body.password
+        }
+      });
+       res.json(response)
+        
+      
+    } catch (error) {
+        res.json(error)
+    }
+  }
 
 
 };
