@@ -1,6 +1,7 @@
 const {User}=require('../models/index');
 const jwt=require('jsonwebtoken');
 const config=require('../config/config.json');
+const crypto = require('crypto');
 
 function jwtSignuser(user) {
   const ONE_WEEK=60*60*24*7;
@@ -9,11 +10,14 @@ function jwtSignuser(user) {
    });
 }
 module.exports = {
+
+  
   async register(req, res) {
+    const hashPass = crypto.createHash('md5').update(req.body.password).digest('hex');
     try {
       const user = await User.create({
         email: req.body.email,
-        password:req.body.password
+        password:hashPass,
       });
      
       res.json(user);
@@ -31,10 +35,11 @@ module.exports = {
 
   async login(req,res){
     try {
+      const hashPass = crypto.createHash('md5').update(req.body.password).digest('hex');
       const user=await User.findOne({
         where:{
           email:req.body.email,
-          password:req.body.password
+          password:hashPass,
         }
       });
       const userJson=user.toJSON();
