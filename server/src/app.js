@@ -14,6 +14,8 @@ app.use(bodyParser.json())
 require('dotenv').config();
 routes(app)
 
+// model.User.sync({force:true})
+
 
 
 

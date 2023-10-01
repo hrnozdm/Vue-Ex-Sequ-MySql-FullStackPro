@@ -43,7 +43,12 @@ export default {
       const response=await AuthenticationService.login({
           email:this.email,
           password:this.password,
-        });
+        })
+        // const token =response.data.token
+        // console.log(token)
+        // this.$store.dispatch('setToken',response.data.token)
+        // this.$store.dispatch('setUser',response.data.user)
+
      if (response.data) {
       alert('giriş başarılı')
      }
