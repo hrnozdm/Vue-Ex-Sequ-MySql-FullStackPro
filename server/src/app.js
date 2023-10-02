@@ -15,6 +15,7 @@ require('dotenv').config();
 routes(app)
 
 // model.User.sync({force:true})
+model.Song.sync()
 
 
 

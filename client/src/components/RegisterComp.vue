@@ -41,6 +41,7 @@
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
+import PanelComp from './PanelComp';
 
 export default{
     data() {
@@ -71,7 +72,9 @@ export default{
                 alert(this.error);
             }
         },
-      
+        components:{
+          PanelComp
+        }
     },
 
 
