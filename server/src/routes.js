@@ -5,6 +5,7 @@ const AuthenticationControllerMiddleware =require("./middleware/AuthenticationCo
 module.exports = (app) => {
   app.post("/register",AuthenticationControllerMiddleware.register ,AuthenticationController.register);
   app.post("/login",AuthenticationController.login);
-  app.get("/",AuthenticationController.home);;
-  app.post('/songs',SongsController.addMusic);
+  app.get("/",AuthenticationController.home);
+  app.get('/songs',SongsController.getSongs);
+  app.post('/addMusic',SongsController.addMusic);
 };

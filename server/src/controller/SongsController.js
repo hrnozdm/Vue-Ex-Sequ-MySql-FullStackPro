@@ -18,5 +18,16 @@ module.exports={
         res.status(400).json({ error: error.message });
       }
     },
+
+    async getSongs(req,res){
+      try {
+        const getAllSongs=await Song.findAll();
+        res.json(getAllSongs);
+      } catch (error) {
+        res.status(400).json({error:error.message});
+      }
+    },
+
+    
     
 }
