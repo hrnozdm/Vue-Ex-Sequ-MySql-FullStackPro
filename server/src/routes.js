@@ -8,4 +8,5 @@ module.exports = (app) => {
   app.get("/",AuthenticationController.home);
   app.get('/songs',SongsController.getSongs);
   app.post('/addMusic',SongsController.addMusic);
+  app.get('/songbyid/:id',SongsController.getSongById);
 };

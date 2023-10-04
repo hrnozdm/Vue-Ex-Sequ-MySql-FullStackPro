@@ -45,11 +45,10 @@ export default {
                 email: this.email,
                 password: this.password,
             });
-            // const token =response.data.token
-            // console.log(token)
-            // this.$store.dispatch('setToken',response.data.token)
-            // this.$store.dispatch('setUser',response.data.user)
+            
             if (response.data) {
+                this.$store.dispatch('setToken',response.data.token);
+                this.$store.dispatch('setUser',response.data.user);
                 alert('giriş başarılı');
                 this.$router.push({
                   name:'CreateSongs'

@@ -14,6 +14,7 @@
                         class="form-control"
                         v-model="title"
                         placeholder="Şarkı Başlığını Giriniz"
+                        required
                         
                       />
                     </div>
@@ -24,6 +25,7 @@
                         class="form-control"
                         v-model="artist"
                         placeholder="Şarkıcının Adını Giriniz"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -33,6 +35,7 @@
                         class="form-control"
                         v-model="genre"
                         placeholder="Şarkının Türünü Giriniz"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -42,6 +45,7 @@
                         class="form-control"
                         v-model="album"
                         placeholder="Albümü Giriniz"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -51,6 +55,7 @@
                         class="form-control"
                         v-model="albumImageUrl"
                         placeholder="Albümü Linkini Giriniz"
+                        required
                       />
                     </div>
                     <div class="mb-3">
@@ -60,6 +65,7 @@
                         class="form-control"
                         v-model="youtube_id"
                         placeholder="Youtube id giriniz"
+                        required
                       />
                     </div>
                   </div>
@@ -70,6 +76,7 @@
                         class="form-control"
                         v-model="tab"
                         placeholder="TAB"
+                        required
                       ></textarea>
                     </div>
                     <div class="mb-3 ml-4">
@@ -78,6 +85,7 @@
                         class="form-control"
                         v-model="lyrics"
                         placeholder="Lyrics"
+                        required
                       ></textarea>
                     </div>
                   </div>
@@ -134,6 +142,6 @@
   </script>
   
   <style scoped>
-  /* İhtiyacınıza göre stil tanımlamalarınızı burada yapabilirsiniz. */
+  
   </style>
   

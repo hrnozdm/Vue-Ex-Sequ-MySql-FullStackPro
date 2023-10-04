@@ -9,6 +9,10 @@ export default{
 
     addMusic(musicInfo){
         return Api().post('addMusic',musicInfo);
+    },
+
+    getSongById(id){
+         return Api().get(`songbyid/${id}`);
     }
 }
 

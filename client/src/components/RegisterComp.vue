@@ -46,6 +46,7 @@
 <script>
 import AuthenticationService from '@/services/AuthenticationService';
 import PanelComp from '@/components/PanelComp.vue';
+
 export default{
     data() {
         return {
@@ -62,11 +63,14 @@ export default{
                     email: this.email,
                     password: this.password,
                 });
-                // this.$store.dispatch('setToken',response.data.token)
-                // this.$store.dispatch('setUser',response.data.user)
-                if (response) {
-                    this.error = 'Kayıt Başarılı';
-                    alert(this.error);
+               
+                if (response.data) {
+                     this.error = 'Kayıt Başarılı';
+                     this.$store.dispatch('setToken',response.data.token);
+                     this.$store.dispatch('setUser',response.data.user);
+                     
+                     
+                     alert(this.error);
                 }
             }
             catch (error) {

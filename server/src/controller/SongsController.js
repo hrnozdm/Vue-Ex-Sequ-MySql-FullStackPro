@@ -26,7 +26,23 @@ module.exports={
       } catch (error) {
         res.status(400).json({error:error.message});
       }
+
+     
     },
+
+    async getSongById(req,res){
+      try {
+        const song=await Song.findOne({
+          where:{
+            id:req.params.id,
+          }
+        })
+        res.json(song)
+      } catch (error) {
+        res.json(error)
+      }
+       
+    }
 
     
     

@@ -5,6 +5,7 @@ import HomeComp from './components/HomeComp.vue';
 import LoginComp from './components/LoginComp.vue';
 import SongsComp from './components/SongsComp.vue';
 import CreateSongsComp from './components/CreateSongsComp.vue';
+import ViewSongComp from './components/ViewSongComp.vue';
 
 
 Vue.use(VueRouter);
@@ -16,6 +17,7 @@ export const router = new VueRouter({
     { path: '/login', component: LoginComp,name:'login'},
     {path:'/songs',component:SongsComp,name:'songs'},
     {path:'/createSong',component:CreateSongsComp,name:'CreateSongs'},
+    {path:'/ViewSong/:id',component:ViewSongComp,name:'ViewSong'},
   ],mode:'history',
 },
 
