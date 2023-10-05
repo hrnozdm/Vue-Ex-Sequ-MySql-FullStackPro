@@ -42,8 +42,57 @@ module.exports={
         res.json(error)
       }
        
-    }
+    },
 
+    async updateSongById(req, res) {
+      try {
+        const songId = req.params.id;
+        const updatedSongData = req.body; // Güncellenecek verileri alın
+  
+        const song = await Song.findOne({
+          where: {
+            id: songId,
+          },
+        });
+  
+        if (!song) {
+          return res.status(404).json({ error: 'Şarkı bulunamadı' });
+        }
+  
+       
+        song.title = updatedSongData.title;
+        song.artist = updatedSongData.artist;
+        song.genre = updatedSongData.genre;
+        song.album = updatedSongData.album;
+        song.albumImageUrl = updatedSongData.albumImageUrl;
+        song.tab = updatedSongData.tab;
+        song.lyrics = updatedSongData.lyrics;
+        song.youtube_id = updatedSongData.youtube_id;
+  
+       
+        await song.save();
+  
+        res.json(song);
+      } catch (error) {
+        res.status(400).json({ error: error.message });
+      }
+    },
+    
+    async deleteSongById(req,res){
+      try {
+        const songId=req.params.id;
+        const songDelete = await Song.destroy({
+          where: {
+            id: songId,
+          },
+        });
+         res.json(songDelete);
+
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
     
     
 }

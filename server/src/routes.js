@@ -9,4 +9,6 @@ module.exports = (app) => {
   app.get('/songs',SongsController.getSongs);
   app.post('/addMusic',SongsController.addMusic);
   app.get('/songbyid/:id',SongsController.getSongById);
+  app.put('/updatesongbyid/:id',SongsController.updateSongById);
+  app.delete('/deleteSong/:id',SongsController.deleteSongById);
 };

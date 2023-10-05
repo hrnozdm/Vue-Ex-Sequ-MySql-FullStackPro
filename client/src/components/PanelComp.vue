@@ -10,6 +10,10 @@
           <div>
             <slot name="action"></slot>
           </div>
+
+          <div>
+            <slot name="search"></slot>
+          </div>
         </div>
         <div class="card-body">
           <slot></slot>

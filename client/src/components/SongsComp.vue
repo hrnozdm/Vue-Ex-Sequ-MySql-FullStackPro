@@ -6,11 +6,15 @@
           <button class="btn rounded-circle btn-success">+</button>
         </router-link>
       </div>
+
+    
       <div class="d-flex justify-content-around" v-for="song in songs" :key="song.id">
         <div class="d-flex justify-content-start align-items-center flex-wrap">
+
           <div class="m-2 ml-4">
             <img :src="song.albumImageUrl" alt="" class="albumImage">
           </div>
+
           <div class="m-2 ml-4">
             <h5>{{ song.title }}</h5>
             <p class="mb-1"><strong>Artist:</strong> {{ song.artist }}</p>
@@ -21,9 +25,22 @@
           <div class="m-2 ml-4">
             <button class="btn  btn-circle btn-success"> <router-link :to="'/viewSong/' + song.id" class="btn btn-circle btn-success">View</router-link></button>
           </div>
+
+          <div class="m-2 ml-4">
+            <button class="btn  btn-circle btn-warning"><router-link :to="'/editSong/' + song.id" class="btn btn-circle btn-warning">Edit</router-link></button>
+          </div>
+
+          <div class="m-2 ml-4">
+            <button class="btn  btn-circle btn-danger"><router-link :to="'/deleteSong/' + song.id" class="btn btn-circle btn-danger">Delete</router-link></button>
+          </div>
+
+          
         </div>
       </div>
     </PanelComp>
+
+
+
   </div>
 </template>
 
@@ -37,6 +54,7 @@ export default {
   data() {
     return {
       songs: null,
+      searchInput:null,
     };
   },
 

@@ -11,7 +11,6 @@
               <p><strong>Artist:</strong> {{ song.artist }}</p>
               <p><strong>Genre:</strong> {{ song.genre }}</p>
               <p><strong>Album:</strong> {{ song.album }}</p>
-              <!-- Diğer şarkı özelliklerini burada görüntüleyebilirsiniz -->
               <p><strong>Lyrics:</strong> {{ song.lyrics }}</p>
               <p><strong>Tab:</strong> {{ song.tab }}</p>
             </div>

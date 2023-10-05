@@ -15,12 +15,7 @@ require('dotenv').config();
 routes(app)
 
 //model.User.sync({force:true})
-model.Song.sync({force:true})
-
-
-
-
-
+//model.Song.sync({force:true})
 
 
 const port=3000;
